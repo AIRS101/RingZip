@@ -1,0 +1,19 @@
+RingZip bundles a trimmed copy of LMMs-Eval, used to reproduce the paper's
+experiments.
+
+  Upstream : https://github.com/EvolvingLMMs-Lab/lmms-eval
+  Version  : 0.5.0
+  License  : MIT (see lmms_eval/LICENSE)
+
+Changes from upstream
+---------------------
+  * Models: kept only the Qwen2.5-VL family used in the paper — the base model,
+    RingZip (qwen2_5_vl_coherence[_pma]), and the compared baselines
+    (FastV, VisionZip, DivPrune, DUET, IVC-Prune). All other model adapters
+    were removed.
+  * Tasks: kept only XLRS-Bench (xlrs), LRS-VQA, and MME-RealWorld-RS; all other
+    benchmarks were removed. The lrs_vqa and mme_realworld task code is modified
+    from upstream to match the official benchmark protocols (metrics, prompts,
+    max_new_tokens).
+  * qwen2_5_vl_coherence imports the compressor from the standalone `ringzip`
+    package instead of the in-tree _coherence_core.py.
